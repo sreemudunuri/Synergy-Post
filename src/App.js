@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   renderNews = (news) => {
-    
+    console.log(news.articles)
   }
 
   render() {
