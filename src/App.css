@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.App {
+  font-family: 'Lato', sans-serif;
+}
+
+.grid-container{
+  padding:30px;
+}
+
+.card{
+  height:100%;
+}
