@@ -28,7 +28,6 @@ class App extends Component {
   // };
 
   render() {
-    console.log(this.state.articles);
     return (
       <div>
         <NewsContainer articles={this.state.articles} />

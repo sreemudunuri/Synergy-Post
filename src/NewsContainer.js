@@ -2,17 +2,11 @@ import React, { Component } from "react";
 
 export default class NewsContainer extends Component {
   mapInfo = () => {
-    this.props.articles.map(song => console.log(song));
+    return this.props.articles.map(song => song.title);
   };
 
-  renderCards() {
-    {
-      /* please send me your render code */
-    }
-  }
-
   render() {
-    // console.log(this.props.articles);
-    return null;
+    console.log(this.props.articles);
+    return <div>{this.mapInfo()}</div>;
   }
 }
