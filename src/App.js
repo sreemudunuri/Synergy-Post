@@ -3,7 +3,8 @@ import NewsContainer from "./NewsContainer";
 
 class App extends Component {
   state = {
-    articles: []
+    articles: [],
+    selectedCountry: "us"
   };
 
   fetchNews = () => {
@@ -11,7 +12,7 @@ class App extends Component {
 
     const url =
       "https://newsapi.org/v2/top-headlines?" +
-      "country=us&" +
+      `country=${this.state.selectedCountry}&` +
       `apiKey=${google_api_key}`;
 
     fetch(url)
@@ -23,6 +24,10 @@ class App extends Component {
     this.fetchNews();
   }
 
+  setCountry = value => {
+    this.setState({ selectedCountry: value }, () => this.fetchNews());
+  };
+
   // renderNews = news => {
   //   return news.articles;
   // };
@@ -30,7 +35,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NewsContainer articles={this.state.articles} />
+        <NewsContainer
+          articles={this.state.articles}
+          selectedCountry={this.state.selectedCountry}
+          setCountry={this.setCountry}
+        />
       </div>
     );
   }
