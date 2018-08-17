@@ -3,10 +3,7 @@ const countries = [
     countryCode: "us",
     countryName: "United States"
   },
-  {
-    countryCode: "ae",
-    countryName: "United Arab Emirates"
-  },
+
   {
     countryCode: "ar",
     countryName: "Argentina"
@@ -52,16 +49,16 @@ const countries = [
     countryName: "Czech Republic"
   },
   {
-    countryCode: "de",
-    countryName: "Germany"
-  },
-  {
     countryCode: "eg",
     countryName: "Egypt"
   },
   {
     countryCode: "fr",
     countryName: "France"
+  },
+  {
+    countryCode: "de",
+    countryName: "Germany"
   },
   {
     countryCode: "gr",
@@ -144,7 +141,7 @@ const countries = [
     countryName: "Philippines"
   },
   {
-    countryCode: "po",
+    countryCode: "pl",
     countryName: "Poland"
   },
   {
@@ -180,6 +177,10 @@ const countries = [
     countryName: "Slovenia"
   },
   {
+    countryCode: "za",
+    countryName: "South Africa"
+  },
+  {
     countryCode: "se",
     countryName: "Sweden"
   },
@@ -204,16 +205,16 @@ const countries = [
     countryName: "Ukraine"
   },
   {
+    countryCode: "ae",
+    countryName: "United Arab Emirates"
+  },
+  {
     countryCode: "gb",
     countryName: "United Kingdom"
   },
   {
     countryCode: "ve",
     countryName: "Venezuela"
-  },
-  {
-    countryCode: "za",
-    countryName: "South Africa"
   }
 ];
 
