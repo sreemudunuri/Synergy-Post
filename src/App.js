@@ -1,45 +1,17 @@
 import React, { Component } from "react";
-import NewsContainer from "./NewsContainer";
+import GoogleNews from "./containers/GoogleNews";
+import "./App.css";
 
 class App extends Component {
-  state = {
-    articles: [],
-    selectedCountry: "us"
-  };
-
-  fetchNews = () => {
-    const google_api_key = process.env.REACT_APP_GOOGLE_API_KEY;
-
-    const url =
-      "https://newsapi.org/v2/top-headlines?" +
-      `country=${this.state.selectedCountry}&` +
-      `apiKey=${google_api_key}`;
-
-    fetch(url)
-      .then(res => res.json())
-      .then(json => this.setState({ articles: json.articles }));
-  };
-
-  componentDidMount() {
-    this.fetchNews();
-  }
-
-  setCountry = value => {
-    this.setState({ selectedCountry: value }, () => this.fetchNews());
-  };
-
-  // renderNews = news => {
-  //   return news.articles;
-  // };
-
   render() {
     return (
-      <div>
-        <NewsContainer
-          articles={this.state.articles}
-          selectedCountry={this.state.selectedCountry}
-          setCountry={this.setCountry}
-        />
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">News</h1>
+        </header>
+        <div>
+          <GoogleNews />
+        </div>
       </div>
     );
   }

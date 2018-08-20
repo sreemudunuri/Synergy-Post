@@ -218,4 +218,8 @@ const countries = [
   }
 ];
 
+<<<<<<< HEAD
 export default countries;
+=======
+export default countries;
+>>>>>>> 1aa20e63a0e0697e7e26919390508e2e2225365e
