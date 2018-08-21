@@ -3,11 +3,17 @@
 .App {
   font-family: 'Lato', sans-serif;
 }
-
-.grid-container{
-  padding:30px;
+*, body{
+  margin:0;
+  padding:0;
 }
 
-.card{
-  height:100%;
+div{
+  display:block;
 }
+
+.news-container{
+  margin:0 45px;
+  height:auto;
+}
+

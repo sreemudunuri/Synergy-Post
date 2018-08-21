@@ -21,7 +21,11 @@ export default class SingleCard extends Component {
       </div>
     )
     return(
-      <Card style={{boxShadow:'none'}} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+      <Card 
+        style={{boxShadow:'none'}} 
+        onMouseEnter={this.handleMouseEnter} 
+        onMouseLeave={this.handleMouseLeave}
+      >
         <Dimmer.Dimmable 
           as={Image}
           dimmed={active}
@@ -31,12 +35,12 @@ export default class SingleCard extends Component {
           size='medium'
           src={this.props.article.urlToImage}
         />
-         <Card.Content>
-           <Card.Header>{this.props.article.title}</Card.Header>
-           <Card.Meta>{this.props.article.source.name}</Card.Meta>
-           <Card.Description>{this.props.article.description}</Card.Description>
-         </Card.Content>
-       </Card>
+        <Card.Content>
+          <Card.Header>{this.props.article.title}</Card.Header>
+          <Card.Meta>{this.props.article.source.name}</Card.Meta>
+          <Card.Description>{this.props.article.description}</Card.Description>
+        </Card.Content>
+      </Card>
     )
   }
 }

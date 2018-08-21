@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewsCollection from './NewsCollection';
+import DesktopContainer from '../components/Header';
 
 export default class GoogleNews extends Component {
 
@@ -30,12 +31,17 @@ export default class GoogleNews extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <DesktopContainer 
+          selectedCountry={this.selectedCountry} 
+          setCountry={this.setCountry}
+        />
         <NewsCollection 
-        news={this.state.news} 
-        selectedCountry={this.state.selectedCountry}
-        setCountry={this.setCountry}/>
-      </div>
+          news={this.state.news} 
+          selectedCountry={this.state.selectedCountry}
+          setCountry={this.setCountry}
+        />
+      </React.Fragment>
     );
   }
 }
