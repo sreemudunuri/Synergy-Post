@@ -1,32 +1,42 @@
 import React, {Component} from 'react';
-import {Card, Image } from 'semantic-ui-react'
+import {Dimmer, Card, Image} from 'semantic-ui-react'
 import ReadSaveButtons from './Buttons'
 
 export default class SingleCard extends Component {
-  state = {
-    hover : false,
-    selectedNews : {}
-  }
+  state = {}
 
   handleMouseEnter = () => {
-    this.setState({hover: true})
+    this.setState({active: true})
   }
 
   handleMouseLeave = () => {
-    this.setState({hover: false})
+    this.setState({active: false})
   }
 
   render(){
+    const {active} = this.state
+    const content = (
+      <div>
+        <ReadSaveButtons url={this.props.article.url}/>
+      </div>
+    )
     return(
-      <Card className="card" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-        <Image src={this.props.article.urlToImage}/>
-        <Card.Content>
-          <Card.Header>{this.props.article.title}</Card.Header>
-          <Card.Meta>{this.props.article.source.name}</Card.Meta>
-          <Card.Description>{this.props.article.description}</Card.Description>
-        </Card.Content>
-        {this.state.hover ? <ReadSaveButtons imgURL={this.props.article.url}/> : null}
-      </Card>
+      <Card style={{boxShadow:'none'}} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+        <Dimmer.Dimmable 
+          as={Image}
+          dimmed={active}
+          dimmer={{ active, content }}
+          onMouseEnter={this.handleMouseEnter} 
+          onMouseLeave={this.handleMouseLeave}
+          size='medium'
+          src={this.props.article.urlToImage}
+        />
+         <Card.Content>
+           <Card.Header>{this.props.article.title}</Card.Header>
+           <Card.Meta>{this.props.article.source.name}</Card.Meta>
+           <Card.Description>{this.props.article.description}</Card.Description>
+         </Card.Content>
+       </Card>
     )
   }
 }

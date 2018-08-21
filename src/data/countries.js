@@ -1,5 +1,4 @@
-const countries = [
-  {
+const countries = [{
     countryCode: "us",
     countryName: "United States"
   },

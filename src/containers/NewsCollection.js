@@ -7,8 +7,16 @@ export default class NewsCollection extends Component{
     return this.props.news.sort((a,b) => (a.urlToImage===null)-(b.urlToImage===null) || +(a>b)||-(a<b))
   }
 
+  newsArrWithImages = () => {
+    return this.props.news.filter(article => article.urlToImage !== null)
+  }
+
+  newsArrWithNoImages = () => {
+    return this.props.news.filter(article => article.urlToImage === null)
+  }
+
   render(){
-    console.log(this.sortNewsWithImages())
+    console.log(this.newsArrWithNoImages())
     return(
       <div>
         <div>
@@ -17,9 +25,12 @@ export default class NewsCollection extends Component{
             setCountry={this.props.setCountry}
           />
         </div>
-        <div className="grid-container">
+        <div className="grid-container" style={{display:'flex'}}>
           <Grid> 
-            <NewsCard news={this.sortNewsWithImages()}/>
+            <NewsCard 
+              withImages={this.newsArrWithImages()}
+              withNoImages={this.newsArrWithNoImages()}
+            />
           </Grid>
         </div>
       </div>
