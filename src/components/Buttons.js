@@ -18,4 +18,22 @@ const ReadSaveButtons = ({url}) => (
   </div>
 )
 
-export default ReadSaveButtons
+const ReadDeleteButtons = ({url}) => (
+  <div>
+    <Button animated='vertical' href={url} target="_blank">
+      <Button.Content hidden>Read</Button.Content>
+      <Button.Content visible>
+        <Icon name='eye' />
+      </Button.Content>
+    </Button>
+    <Button animated='vertical'>
+      <Button.Content hidden>Delete</Button.Content>
+      <Button.Content visible>
+        <Icon name='delete' />
+      </Button.Content>
+    </Button>
+  </div>
+)
+
+export default {ReadSaveButtons , ReadDeleteButtons};
+

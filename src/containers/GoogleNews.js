@@ -6,7 +6,8 @@ export default class GoogleNews extends Component {
 
   state = {
     news : [],
-    selectedCountry: 'us'
+    selectedCountry: 'us',
+    searchTerm: ''
   }
 
   fetchNews = () => {
