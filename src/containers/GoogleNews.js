@@ -4,12 +4,6 @@ import DesktopContainer from '../components/Header';
 
 export default class GoogleNews extends Component {
 
-<<<<<<< HEAD
-  state = {
-    news : [],
-    selectedCountry: 'us',
-    searchTerm: ''
-=======
   constructor (props) {
     super(props)
     this.state = {
@@ -17,7 +11,6 @@ export default class GoogleNews extends Component {
       selectedCountry: 'us',
       userId: null,
     }
->>>>>>> origin/sree
   }
 
   fetchNews = () => {
