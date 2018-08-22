@@ -3,14 +3,25 @@ import GoogleNews from './containers/GoogleNews'
 import LoginPage from './containers/LoginPage'
 import './App.css';
 import { Route } from 'react-router-dom';
-
+import BookmarkAdapter from './api/BookmarkAdapter';
 
 class App extends Component {
+
+
   render() {
+    console.log(BookmarkAdapter.isLoggedIn())
     return (
       <div className="App">
-        <Route exact path="/" component={LoginPage} />
-        <Route exact path="/user" component={GoogleNews} />
+        {
+            !BookmarkAdapter.isLoggedIn() ?
+              <React.Fragment>
+                <Route exact path="/" render={(routerProps) => <LoginPage {...routerProps}/>} />
+              </React.Fragment>
+              :
+              <React.Fragment>
+                <Route exact path="/news" render={(routerProps) => <GoogleNews {...routerProps}/>} />
+              </React.Fragment>
+        }
       </div>
     );
   }

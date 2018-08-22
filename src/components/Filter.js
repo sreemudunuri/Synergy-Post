@@ -5,7 +5,7 @@ import countries from "../data/countries";
 export default class Filter extends React.Component {
   mapOptions = () => {
     const mappedComponents = countries.map(countryObj => (
-      <FilterOption
+      <FilterOption key={countryObj.countryCode}
         countryCode={countryObj.countryCode}
         countryName={countryObj.countryName}
       />
@@ -24,4 +24,3 @@ export default class Filter extends React.Component {
     );
   }
 }
-

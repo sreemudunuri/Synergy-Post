@@ -29,16 +29,16 @@ const NewsCard = ({withImages, withNoImages}) => (
   <React.Fragment>
     <Grid>
       {withImages.map( (article, index) =>
-        <Grid.Column mobile={16} tablet={8} computer={4}>
-        <SingleCard key={article.title} article={article}/>
+        <Grid.Column key={article.title} mobile={16} tablet={8} computer={4}>
+        <SingleCard  article={article}/>
         </Grid.Column>
-        )} 
+        )}
       <Grid.Row>
       {withNoImages.map( (article, index) =>
-        <Grid.Column mobile={16} tablet={8} computer={4}>
-        <SingleCard key={article.title} article={article}/>
+        <Grid.Column key={article.title} mobile={16} tablet={8} computer={4}>
+        <SingleCard article={article}/>
         </Grid.Column>
-        )} 
+        )}
       </Grid.Row>
     </Grid>
   </React.Fragment>
