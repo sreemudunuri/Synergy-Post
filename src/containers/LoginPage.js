@@ -54,6 +54,10 @@ class LoginForm extends React.Component {
       })
   }
 
+  handleClickForSignUp = () => {
+    this.props.history.push('/register')
+  }
+
   render (){
     return(
   <div className='login-form'>
@@ -85,7 +89,7 @@ class LoginForm extends React.Component {
               value={this.state.password}
               onChange={this.handlePassword}
             />
-            
+
               <Button color='teal' fluid size='large'
               onClick={this.handleSubmit}
               >
@@ -95,7 +99,10 @@ class LoginForm extends React.Component {
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us?
+          <a
+          onClick={this.handleClickForSignUp}
+          >Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>

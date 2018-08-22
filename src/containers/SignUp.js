@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 export default class SignUp extends React.Component{
 
   constructor(props) {
@@ -17,13 +17,13 @@ export default class SignUp extends React.Component{
       this.setState({
         [event.target.name]: event.target.value
       })
-    } else if (event.target.email === 'email') {
+    } else if (event.target.name === 'email') {
       this.setState({
-        [event.target.email]: event.target.value
+        [event.target.name]: event.target.value
       })
-    } else if (event.target.password === 'password') {
+    } else if (event.target.name === 'password') {
       this.setState({
-        [event.target.password]: event.target.password
+        [event.target.name]: event.target.value
       })
     }
   }
@@ -55,7 +55,9 @@ export default class SignUp extends React.Component{
       })
   }
 
-
+  handleClickForLogin = () => {
+    this.props.history.push('/')
+  }
 
   render(){
     return(
@@ -106,7 +108,8 @@ export default class SignUp extends React.Component{
             </Segment>
           </Form>
           <Message>
-            Already have an account? <a href='#'>Login</a>
+            Already have an account? <a onClick={this.handleClickForLogin}
+            >Login</a>
           </Message>
         </Grid.Column>
       </Grid>
