@@ -26,6 +26,11 @@ const HomepageHeading = () => (
 )
 
 class DesktopContainer extends React.Component {
+  handleClick = (event) => {
+    event.preventDefault()
+    localStorage.clear();
+    this.props.changeRoute.push('/')
+  }
   render() {
     return (
       <div>
@@ -37,18 +42,18 @@ class DesktopContainer extends React.Component {
             <Menu fixed secondary size='large'>
               <Container>
                 <Menu.Item as='a'>
-                  <Filter 
+                  <Filter
                     selectedCountry={this.props.selectedCountry}
                     setCountry={this.props.setCountry}
                   />
                 </Menu.Item>
                 <Menu.Item as='a'>
-                  
+
                 </Menu.Item>
                 <Menu.Item position='right'>
-                  <Button as='a'>Log in</Button>
+                  <Button as='a' onClick={this.handleClick} >Log Out</Button>
                   <Button as='a' primary={false} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
+                    My Bookmarks
                   </Button>
                 </Menu.Item>
               </Container>

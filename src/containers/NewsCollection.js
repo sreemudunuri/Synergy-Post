@@ -17,19 +17,16 @@ export default class NewsCollection extends Component{
   render(){
     return(
       <div>
-        
+
         <div className="news-container">
-          <NewsCard 
+          <NewsCard
             className="news-container"
             withImages={this.newsArrWithImages()}
             withNoImages={this.newsArrWithNoImages()}
+            userId={this.props.userId}
           />
         </div>
       </div>
     )
   }
 }
-
-  
-
-
