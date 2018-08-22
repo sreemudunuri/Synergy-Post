@@ -11,37 +11,25 @@ const makeColumns = (arr) => {
   return splitArr
 }
 
-// const makeRows = (arr) => {
-//   makeColumns(arr).forEach((elem, index)=> {
-//    return
-//    <Grid.Row>
-//       {makeColumns(arr).map((article,index) => (
-//         <Grid.Column>
-//           <SingleCard key={article[index].title} article={article[index]}/>
-//         </Grid.Column>
-//       ))}
-//     </Grid.Row>
-//   })
 
-// }
-
-const NewsCard = ({withImages, withNoImages}) => (
+const NewsCard = ({withImages, withNoImages, userId}) => (
   <React.Fragment>
     <Grid>
       {withImages.map( (article, index) =>
         <Grid.Column key={article.title} mobile={16} tablet={8} computer={4}>
-        <SingleCard  article={article}/>
+        <SingleCard  article={article} userId={userId}/>
         </Grid.Column>
         )}
-      <Grid.Row>
-      {withNoImages.map( (article, index) =>
-        <Grid.Column key={article.title} mobile={16} tablet={8} computer={4}>
-        <SingleCard article={article}/>
-        </Grid.Column>
-        )}
-      </Grid.Row>
     </Grid>
   </React.Fragment>
 )
 
 export default NewsCard;
+
+// <Grid.Row>
+// {withNoImages.map( (article, index) =>
+//   <Grid.Column key={article.title} mobile={16} tablet={8} computer={4}>
+//   <SingleCard article={article}/>
+//   </Grid.Column>
+//   )}
+// </Grid.Row>

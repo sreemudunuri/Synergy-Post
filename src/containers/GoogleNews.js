@@ -8,10 +8,10 @@ export default class GoogleNews extends Component {
     super(props)
     this.state = {
       news : [],
-      selectedCountry: 'us'
+      selectedCountry: 'us',
+      userId: null,
     }
   }
-
 
   fetchNews = () => {
     const google_api_key = process.env.REACT_APP_GOOGLE_API_KEY
@@ -26,7 +26,28 @@ export default class GoogleNews extends Component {
   }
 
   componentDidMount() {
+
     this.fetchNews()
+
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://localhost:3000/api/v1/users",
+      "method": "GET",
+      "headers": {
+        "Authorization": localStorage.getItem('token'),
+        "Cache-Control": "no-cache",
+      }
+    }
+
+    fetch('http://localhost:3000/api/v1/users', settings)
+    .then(res => res.json())
+    .then(user =>
+      this.setState({
+        userId: user.id
+      })
+    )
+
   }
 
   setCountry = value => {
@@ -39,11 +60,13 @@ export default class GoogleNews extends Component {
         <DesktopContainer changeRoute={this.props.history}
           selectedCountry={this.selectedCountry}
           setCountry={this.setCountry}
+
         />
         <NewsCollection
           news={this.state.news}
           selectedCountry={this.state.selectedCountry}
           setCountry={this.setCountry}
+          userId={this.state.userId}
         />
       </React.Fragment>
     );

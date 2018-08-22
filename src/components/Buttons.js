@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 
-const ReadSaveButtons = ({url}) => (
+const ReadSaveButtons = ({url, saveBookmark}) => (
   <div>
     <Button animated='vertical' href={url} target="_blank">
       <Button.Content hidden>Read</Button.Content>
@@ -9,7 +9,7 @@ const ReadSaveButtons = ({url}) => (
         <Icon name='eye' />
       </Button.Content>
     </Button>
-    <Button animated='vertical'>
+    <Button animated='vertical' onClick={saveBookmark}>
       <Button.Content hidden>Save</Button.Content>
       <Button.Content visible>
         <Icon name='bookmark' />
