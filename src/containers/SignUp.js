@@ -72,7 +72,7 @@ export default class SignUp extends React.Component{
       <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as='h2' color='teal' textAlign='center'>
-            <Image src='/logo.png' /> Sign up a new account
+            Create a new Synergy account
           </Header>
           <Form size='large'>
             <Segment stacked>
