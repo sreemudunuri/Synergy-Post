@@ -35,5 +35,4 @@ const ReadDeleteButtons = ({url}) => (
   </div>
 )
 
-export default {ReadSaveButtons , ReadDeleteButtons};
-
+export {ReadSaveButtons , ReadDeleteButtons};

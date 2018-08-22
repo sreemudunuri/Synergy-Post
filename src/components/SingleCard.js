@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Dimmer, Card, Image} from 'semantic-ui-react'
-import ReadSaveButtons from './Buttons'
+import {ReadSaveButtons} from './Buttons'
 
 export default class SingleCard extends Component {
 

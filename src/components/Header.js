@@ -31,6 +31,12 @@ class DesktopContainer extends React.Component {
     localStorage.clear();
     this.props.changeRoute.push('/')
   }
+
+  handleClickMyBookmark = (event) => {
+    event.preventDefault()
+    this.props.changeRoute.push('/mybookmarks')
+  }
+  
   render() {
     return (
       <div>
@@ -52,7 +58,10 @@ class DesktopContainer extends React.Component {
                 </Menu.Item>
                 <Menu.Item position='right'>
                   <Button as='a' onClick={this.handleClick} >Log Out</Button>
-                  <Button as='a' primary={false} style={{ marginLeft: '0.5em' }}>
+                  <Button as='a'
+                  primary={false} style={{ marginLeft: '0.5em' }}
+                  onClick={this.handleClickMyBookmark}
+                  >
                     My Bookmarks
                   </Button>
                 </Menu.Item>

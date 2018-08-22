@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GoogleNews from './containers/GoogleNews'
 import LoginPage from './containers/LoginPage'
 import SignUp from './containers/SignUp'
+import BookmarksCollection from './containers/BookmarksCollection'
 import './App.css';
 import { Route } from 'react-router-dom';
 import BookmarkAdapter from './api/BookmarkAdapter';
@@ -24,6 +25,8 @@ class App extends Component {
               :
               <React.Fragment>
                 <Route exact path="/news" render={(routerProps) => <GoogleNews {...routerProps}/>} />
+
+                <Route exact path="/mybookmarks" render={(routerProps) => <BookmarksCollection {...routerProps}/>} />
               </React.Fragment>
         }
       </div>
