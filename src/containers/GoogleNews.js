@@ -1,53 +1,51 @@
-import React, { Component } from 'react';
-import NewsCollection from './NewsCollection';
-import DesktopContainer from '../components/Header';
+import React, { Component } from "react";
+import NewsCollection from "./NewsCollection";
+import DesktopContainer from "../components/Header";
 
 export default class GoogleNews extends Component {
-
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       news : [],
       selectedCountry: 'us',
       userId: null,
     }
-  }
 
   fetchNews = () => {
-    const google_api_key = process.env.REACT_APP_GOOGLE_API_KEY
+    // const google_api_key = process.env.REACT_APP_GOOGLE_API_KEY;
+    console.log(process);
 
-    const url = 'https://newsapi.org/v2/top-headlines?' +
-            `country=${this.state.selectedCountry}&` +
-            `apiKey=${google_api_key}`;
+    const url =
+      "https://newsapi.org/v2/top-headlines?" +
+      `country=${this.state.selectedCountry}&` +
+      `apiKey=${google_api_key}`;
 
     fetch(url)
-    .then(res => res.json())
-    .then(json => this.setState({news: json.articles}))
-  }
+      .then(res => res.json())
+      .then(json => this.setState({ news: json.articles }, console.log(json)));
+  };
 
   componentDidMount() {
-
-    this.fetchNews()
+    this.fetchNews();
 
     let settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://localhost:3000/api/v1/users",
-      "method": "GET",
-      "headers": {
-        "Authorization": localStorage.getItem('token'),
-        "Cache-Control": "no-cache",
+      async: true,
+      crossDomain: true,
+      url: "http://localhost:3000/api/v1/users",
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+        "Cache-Control": "no-cache"
       }
-    }
+    };
 
-    fetch('http://localhost:3000/api/v1/users', settings)
-    .then(res => res.json())
-    .then(user =>
-      this.setState({
-        userId: user.id
-      })
-    )
-
+    fetch("http://localhost:3000/api/v1/users", settings)
+      .then(res => res.json())
+      .then(user =>
+        this.setState({
+          userId: user.id
+        })
+      );
   }
 
   setCountry = value => {
@@ -57,10 +55,10 @@ export default class GoogleNews extends Component {
   render() {
     return (
       <React.Fragment>
-        <DesktopContainer changeRoute={this.props.history}
+        <DesktopContainer
+          changeRoute={this.props.history}
           selectedCountry={this.selectedCountry}
           setCountry={this.setCountry}
-
         />
         <NewsCollection
           news={this.state.news}
